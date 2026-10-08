@@ -21,10 +21,10 @@ function EditarVenta({ venta, onUpdate }) {
   }, [venta]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/estudiantes')
+    axios.get('https://cafeteria-backend-9na3.onrender.com/estudiantes')
       .then(res => setEstudiantes(res.data))
       .catch(err => console.error(err));
-    axios.get('http://localhost:3000/productos')
+    axios.get('https://cafeteria-backend-9na3.onrender.com/productos')
       .then(res => setProductos(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -38,7 +38,7 @@ function EditarVenta({ venta, onUpdate }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:3000/ventas/${venta.id}`, formData)
+    axios.put(`https://cafeteria-backend-9na3.onrender.com/ventas/${venta.id}`, formData)
       .then(res => {
         onUpdate(); // Refresca la lista de ventas de inmediato
       }) 

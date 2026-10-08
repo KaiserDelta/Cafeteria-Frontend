@@ -12,10 +12,10 @@ function FormularioVenta({ onVentaRegistrada }) {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/estudiantes')
+    axios.get('https://cafeteria-backend-9na3.onrender.com/estudiantes')
       .then(res => setEstudiantes(res.data))
       .catch(err => console.error(err));
-    axios.get('http://localhost:3000/productos')
+    axios.get('https://cafeteria-backend-9na3.onrender.com/productos')
       .then(res => setProductos(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -29,7 +29,7 @@ function FormularioVenta({ onVentaRegistrada }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/ventas', formData)
+    axios.post('https://cafeteria-backend-9na3.onrender.com/ventas', formData)
       .then(res => {
         setFormData({ estudiante_id: '', producto_id: '', cantidad: '', fecha: '' });
         if (onVentaRegistrada) {
